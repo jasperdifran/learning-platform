@@ -1,11 +1,13 @@
 import { graphql } from "gatsby";
 import * as React from "react";
+import Navbar from "../../components/Navbar";
 import PostPreview from "../../components/PostPreview";
 
 const PostPage = (props) => {
     console.log(props.data.allMarkdownRemark.edges);
     return (
         <>
+            <Navbar />
             <div>This is a list of all our posts</div>
             {props.data.allMarkdownRemark.edges &&
                 props.data.allMarkdownRemark.edges.map((item) => {

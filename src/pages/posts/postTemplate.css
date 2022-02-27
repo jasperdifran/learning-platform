@@ -1,0 +1,16 @@
+.postPageContainer {
+    margin: 0;
+    background-color: lightblue;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.postContainer {
+    max-width: 1000px;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-grow: 1;
+    background-color: white;
+    padding: 10px;
+}

@@ -1,24 +1,24 @@
 import React from "react";
 import { graphql } from "gatsby";
+import "./postTemplate.css";
+import Navbar from "../../components/Navbar";
 
-export default function Post({
-    data, // this prop will be injected by the GraphQL query below.
-}) {
+const Post = ({ data }) => {
     const { markdownRemark } = data; // data.markdownRemark holds our post data
     const { frontmatter, html } = markdownRemark;
     return (
-        <div className="blog-post-container">
-            <div className="blog-post">
-                <h1>{frontmatter.title}</h1>
-                <h2>{frontmatter.date}</h2>
-                <div
-                    className="blog-post-content"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </div>
-        </div>
+        <>
+            <Navbar />
+            <main className="postPageContainer">
+                <div className="postContainer">
+                    <h1>{frontmatter.title}</h1>
+                    <h2>{frontmatter.date}</h2>
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                </div>
+            </main>
+        </>
     );
-}
+};
 
 export const pageQuery = graphql`
     query ($slug: String!) {
@@ -32,3 +32,5 @@ export const pageQuery = graphql`
         }
     }
 `;
+
+export default Post;
